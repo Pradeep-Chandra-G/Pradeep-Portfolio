@@ -31,10 +31,10 @@ const Contact = () => {
 
     emailjs
       .sendForm(
-        "service_94y20xo",
-        "template_v10u2oh",
+        "service_goi52r9",
+        "template_ztzdu6a",
         formRef.current,
-        "pX_2hasGmGcuvjXIW"
+        "W1s8S81Xb4_CUSTUg"
       )
       .then(
         (result) => {
@@ -58,15 +58,15 @@ const Contact = () => {
         <motion.h1 variants={variants}>Let’s work together</motion.h1>
         <motion.div className="item" variants={variants}>
           <h2>Mail</h2>
-          <span>hello@react.dev</span>
+          <span>pradeepchandragajendra@gmail.com</span>
         </motion.div>
         <motion.div className="item" variants={variants}>
           <h2>Address</h2>
-          <span>Hello street New York</span>
+          <span>Guntur, Andhra Pradesh</span>
         </motion.div>
         <motion.div className="item" variants={variants}>
           <h2>Phone</h2>
-          <span>+1 234 5678</span>
+          <span>+91 9182136412</span>
         </motion.div>
       </motion.div>
       <div className="formContainer">
@@ -74,7 +74,7 @@ const Contact = () => {
           className="phoneSvg"
           initial={{ opacity: 1 }}
           whileInView={{ opacity: 0 }}
-          transition={{ delay: 3, duration: 1 }}
+          transition={{ delay: 3, duration: 2 }}
         >
           <svg width="450px" height="450px" viewBox="0 0 32.666 32.666">
             <motion.path

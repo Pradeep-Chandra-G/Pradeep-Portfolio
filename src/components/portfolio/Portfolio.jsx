@@ -5,14 +5,14 @@ import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 const items = [
   {
     id: 1,
-    title: "React Commerce",
-    img: "https://images.pexels.com/photos/18073372/pexels-photo-18073372/free-photo-of-young-man-sitting-in-a-car-on-a-night-street.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load",
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores ab id ad nesciunt quo aut corporis modi? Voluptate, quos sunt dolorum facilis, id eum sequi placeat accusantium saepe eos laborum.",
+    title: "SchooLama LMS",
+    img: "/schoolama.png",
+    desc: "SchooLama AI LMS empowers students and educators with intelligent tools for seamless learning. Adaptive courses, instant feedback, and smart analytics ensure growth, while AI-driven insights simplify teaching. Engaging, scalable, and efficient, it transforms education into a guided, personalized journey.",
   },
   {
     id: 2,
-    title: "Next.js Blog",
-    img: "https://images.pexels.com/photos/18023772/pexels-photo-18023772/free-photo-of-close-up-of-a-person-holding-a-wristwatch.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load",
+    title: "SchooLama Blog",
+    img: "/blog.png",
     desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores ab id ad nesciunt quo aut corporis modi? Voluptate, quos sunt dolorum facilis, id eum sequi placeat accusantium saepe eos laborum.",
   },
   {
