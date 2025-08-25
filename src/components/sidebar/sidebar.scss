@@ -1,4 +1,6 @@
 @import "../../app.scss";
+@import "../../styles/mixins";
+
 .sidebar {
   display: flex;
   flex-direction: column;
