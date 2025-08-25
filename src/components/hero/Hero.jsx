@@ -33,7 +33,7 @@ const sliderVariants = {
     x: "-220%",
     transition: {
       repeat: Infinity,
-      repeatType:"mirror",
+      repeatType: "mirror",
       duration: 20,
     },
   },
@@ -50,17 +50,16 @@ const buttonVariants = {
 };
 
 const Hero = () => {
+  const [isMobile, setIsMobile] = useState(false);
 
-    const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    if (window.innerWidth < 768) {
+      setIsMobile(true);
+    } else {
+      setIsMobile(false);
+    }
+  }, []);
 
-    useEffect(() => {
-      if(window.innerWidth < 768) {
-        setIsMobile(true);
-      } else {
-        setIsMobile(false);
-      }
-    }, [])
-    
   const scrollToSection = (sectionId) => {
     console.log("Scrolling to:", sectionId); // Debug log
     const element = document.getElementById(sectionId);
@@ -96,25 +95,35 @@ const Hero = () => {
           initial="initial"
           animate="animate"
         >
-          <motion.h2 variants={textVariants}>PRADEEP CHANDRA GAJENDRA</motion.h2>
+          <motion.h2 variants={textVariants}>
+            PRADEEP CHANDRA GAJENDRA
+          </motion.h2>
           <motion.h1 variants={textVariants}>
             Full Stack Java Developer NextJS Developer
           </motion.h1>
           <motion.div variants={textVariants} className="buttons">
-            <motion.button 
+            <motion.button
               variants={buttonVariants}
               whileHover="hover"
               onClick={handleWorksClick}
-              style={{ pointerEvents: 'auto', position: 'relative', zIndex: 100 }}
+              style={{
+                pointerEvents: "auto",
+                position: "relative",
+                zIndex: 100,
+              }}
               type="button"
             >
               See the Latest Works
             </motion.button>
-            <motion.button 
+            <motion.button
               variants={buttonVariants}
               whileHover="hover"
               onClick={handleContactClick}
-              style={{ pointerEvents: 'auto', position: 'relative', zIndex: 100 }}
+              style={{
+                pointerEvents: "auto",
+                position: "relative",
+                zIndex: 100,
+              }}
               type="button"
             >
               Contact Me
@@ -137,7 +146,10 @@ const Hero = () => {
         Designer Developer Engineer
       </motion.div>
       <div className="imageContainer">
-        <img src="/pradeep.png" alt="" />
+        <picture>
+          <source srcSet="/pradeep.webp" type="image/webp" />
+          <img src="/pradeep.png" alt="Pradeep Portrait" loading="eager" />
+        </picture>
       </div>
     </div>
   );
