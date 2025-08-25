@@ -19,6 +19,8 @@
       flex-direction: column;
       justify-content: center;
       gap: 40px;
+      position: relative;
+      z-index: 10;
 
       @include mobile {
         height: 50%;
@@ -43,6 +45,9 @@
       }
 
       .buttons {
+        position: relative;
+        z-index: 20;
+
         button {
           padding: 20px;
           border: 1px solid white;
@@ -52,6 +57,25 @@
           margin-right: 20px;
           cursor: pointer;
           font-weight: 300;
+          transition: all 0.3s ease;
+          position: relative;
+          z-index: 30;
+          pointer-events: auto;
+
+          @include mobile {
+            margin-right: 10px;
+            padding: 15px;
+            font-size: 14px;
+          }
+
+          &:hover {
+            background-color: white;
+            color: black;
+          }
+
+          &:last-child {
+            margin-right: 0;
+          }
         }
       }
 
@@ -75,7 +99,7 @@
       bottom: 0;
     }
 
-    img{
+    img {
       width: 100%;
       height: 100%;
       object-fit: cover;

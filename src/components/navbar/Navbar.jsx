@@ -13,7 +13,7 @@ const Navbar = () => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
         >
-          Development Hell
+          Let&apos;s get out of Development Hell together!
         </motion.span>
         <div className="social">
             <a href="https://github.com/Pradeep-Chandra-G" target="_blank">
@@ -22,8 +22,8 @@ const Navbar = () => {
           <a href="https://www.linkedin.com/in/pradeep-chandra-g/" target="_blank">
             <img src="/linkedin.png" alt="" />
           </a>
-          <a href="#" target="_blank">
-            <img src="/instagram.png" alt="" />
+          <a href="/Pradeep's Resume.pdf" target="_blank">
+            <img src="/resume.png" alt="" />
           </a>
           <a href="#" target="_blank">
             <img src="/dribbble.png" alt="" />
