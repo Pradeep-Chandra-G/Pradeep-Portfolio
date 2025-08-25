@@ -1,5 +1,6 @@
 import "./hero.scss";
 import { motion } from "framer-motion";
+import React, { useEffect, useState } from "react";
 
 const textVariants = {
   initial: {
@@ -49,6 +50,17 @@ const buttonVariants = {
 };
 
 const Hero = () => {
+
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+      if(window.innerWidth < 768) {
+        setIsMobile(true);
+      } else {
+        setIsMobile(false);
+      }
+    }, [])
+    
   const scrollToSection = (sectionId) => {
     console.log("Scrolling to:", sectionId); // Debug log
     const element = document.getElementById(sectionId);
@@ -111,7 +123,7 @@ const Hero = () => {
           <motion.img
             variants={textVariants}
             animate="scrollButton"
-            src="/scroll.png"
+            src={isMobile ? "/arrow.png" : "/scroll.png"}
             alt=""
           />
         </motion.div>
@@ -122,7 +134,7 @@ const Hero = () => {
         initial="initial"
         animate="animate"
       >
-        Writer Designer Developer 
+        Designer Developer Engineer
       </motion.div>
       <div className="imageContainer">
         <img src="/pradeep.png" alt="" />
