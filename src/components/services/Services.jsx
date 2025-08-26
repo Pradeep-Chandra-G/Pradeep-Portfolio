@@ -36,8 +36,8 @@ const Services = () => {
     >
       <motion.div className="textContainer" variants={variants}>
         <p>
-          I focus on helping your brand grow
-          <br /> and move forward
+          From real-time chat apps to AI-driven learning platforms,
+          <br /> I love turning ideas into projects.
         </p>
         <hr />
       </motion.div>
@@ -45,12 +45,13 @@ const Services = () => {
         <div className="title">
           <img src="/people.webp" alt="People" />
           <h1>
-            <motion.b whileHover={{color:"orange"}}>Unique</motion.b> Ideas
+            <motion.b whileHover={{ color: "orange" }}>Unique</motion.b> Ideas
           </h1>
         </div>
         <div className="title">
           <h1>
-            <motion.b whileHover={{color:"orange"}}>For Your</motion.b> Business.
+            <motion.b whileHover={{ color: "orange" }}>For Your</motion.b>{" "}
+            Business.
           </h1>
           <button>WHAT WE DO?</button>
         </div>
@@ -60,12 +61,10 @@ const Services = () => {
           className="box"
           whileHover={{ background: "lightgray", color: "black" }}
         >
-          <h2>Branding</h2>
+          <h2>Full Stack Development</h2>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
-            libero enim nisi aliquam consectetur expedita magni eius ex corrupti
-            animi! Ad nam pariatur assumenda quae mollitia libero repellat
-            explicabo maiores?
+            I build modern web applications using React, Next.js, and Spring
+            Boot, delivering responsive frontends and scalable backends.
           </p>
           <button>Go</button>
         </motion.div>
@@ -73,12 +72,10 @@ const Services = () => {
           className="box"
           whileHover={{ background: "lightgray", color: "black" }}
         >
-          <h2>Branding</h2>
+          <h2>AI-Powered Apps</h2>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
-            libero enim nisi aliquam consectetur expedita magni eius ex corrupti
-            animi! Ad nam pariatur assumenda quae mollitia libero repellat
-            explicabo maiores?
+            I integrate AI tools like Gemini, Groq, and LLaMA to create
+            intelligent apps, including chatbots and automated learning systems.
           </p>
           <button>Go</button>
         </motion.div>
@@ -86,12 +83,10 @@ const Services = () => {
           className="box"
           whileHover={{ background: "lightgray", color: "black" }}
         >
-          <h2>Branding</h2>
+          <h2>Projects</h2>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
-            libero enim nisi aliquam consectetur expedita magni eius ex corrupti
-            animi! Ad nam pariatur assumenda quae mollitia libero repellat
-            explicabo maiores?
+            From real-time chat apps to AI-driven LMS platforms, I have built
+            projects that showcase problem-solving, clean code, and innovation.
           </p>
           <button>Go</button>
         </motion.div>
@@ -99,12 +94,10 @@ const Services = () => {
           className="box"
           whileHover={{ background: "lightgray", color: "black" }}
         >
-          <h2>Branding</h2>
+          <h2>Databases & APIs</h2>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
-            libero enim nisi aliquam consectetur expedita magni eius ex corrupti
-            animi! Ad nam pariatur assumenda quae mollitia libero repellat
-            explicabo maiores?
+            I work with PostgreSQL, pgvector, MongoDB and REST APIs to design
+            reliable data-driven applications and seamless integrations.
           </p>
           <button>Go</button>
         </motion.div>

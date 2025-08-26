@@ -1,38 +1,46 @@
 @import "../../app.scss";
 @import "../../styles/mixins";
 
+.hell-text {
+    font-weight: bold;
+    background: linear-gradient(90deg, #ffea00, #ff6a00, #e60000, #cf0202);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: burn 6s ease-in-out infinite;
+}
+
 .navbar {
-  height: 100px;
+    height: 100px;
 
-  .wrapper {
-    max-width: 1366px;
-    margin: auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 100%;
+    .wrapper {
+        max-width: 1366px;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 100%;
 
-    @include mobile {
-      justify-content: flex-end;
-      padding: 20px;
+        @include mobile {
+            justify-content: flex-end;
+            padding: 20px;
+        }
+
+        span {
+            font-weight: bold;
+
+            @include mobile {
+                display: none;
+            }
+        }
+
+        .social {
+            display: flex;
+            gap: 20px;
+
+            img {
+                width: 18px;
+                height: 18px;
+            }
+        }
     }
-
-    span {
-      font-weight: bold;
-
-      @include mobile {
-        display: none;
-      }
-    }
-
-    .social {
-      display: flex;
-      gap: 20px;
-
-      img {
-        width: 18px;
-        height: 18px;
-      }
-    }
-  }
 }

@@ -6,20 +6,24 @@ const Navbar = () => {
   return (
     <div className="navbar">
       {/* Sidebar */}
-      <Sidebar/>
+      <Sidebar />
       <div className="wrapper">
         <motion.span
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
         >
-          Let&apos;s get out of Development Hell together!
+          Let&apos;s get out of <span class="hell-text">Development Hell</span>{" "}
+          together!
         </motion.span>
         <div className="social">
-            <a href="https://github.com/Pradeep-Chandra-G" target="_blank">
+          <a href="https://github.com/Pradeep-Chandra-G" target="_blank">
             <img src="/github-logo.png" alt="Github Link" />
           </a>
-          <a href="https://www.linkedin.com/in/pradeep-chandra-g/" target="_blank">
+          <a
+            href="https://www.linkedin.com/in/pradeep-chandra-g/"
+            target="_blank"
+          >
             <img src="/linkedin.png" alt="LinkedIN Link" />
           </a>
           <a href="/Pradeep's Resume.pdf" target="_blank">
