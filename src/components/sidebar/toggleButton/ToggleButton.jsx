@@ -2,8 +2,11 @@ import { motion } from "framer-motion";
 
 const ToggleButton = ({ setOpen }) => {
   return (
-    <button onClick={() => setOpen((prev) => !prev)} alt="Toggle Sidebar">
-      <svg width="23" height="23" viewBox="0 0 23 23">
+    <button
+      onClick={() => setOpen((prev) => !prev)}
+      aria-label="Sidebar Toggle"
+    >
+      <svg width="23" height="23" viewBox="0 0 23 23" aria-hidden="true">
         <motion.path
           strokeWidth="3"
           stroke="black"

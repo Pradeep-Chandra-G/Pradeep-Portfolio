@@ -148,7 +148,13 @@ const Hero = () => {
       <div className="imageContainer">
         <picture>
           <source srcSet="/pradeep.webp" type="image/webp" />
-          <img src="/pradeep.png" alt="Pradeep Portrait" loading="eager" />
+          <img
+            src="/pradeep.png"
+            alt="Pradeep Portrait"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+          />
         </picture>
       </div>
     </div>
