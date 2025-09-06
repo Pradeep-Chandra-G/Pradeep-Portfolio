@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import "./contact.scss";
 import { motion, useInView } from "framer-motion";
 import emailjs from "@emailjs/browser";
@@ -47,8 +47,69 @@ const Contact = () => {
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [dotLottie, setDotLottie] = useState(null);
+  const [isLottieReady, setIsLottieReady] = useState(false);
 
   const isInView = useInView(ref, { margin: "-100px" });
+
+  // Preload the Lottie animation
+  useEffect(() => {
+    // Preload the Lottie file
+    const link = document.createElement('link');
+    link.rel = 'prefetch';
+    link.href = '/email-success.lottie';
+    document.head.appendChild(link);
+
+    return () => {
+      document.head.removeChild(link);
+    };
+  }, []);
+
+  // Handle Lottie events
+  useEffect(() => {
+    if (dotLottie) {
+      const handleLoad = () => {
+        setIsLottieReady(true);
+        console.log('Lottie animation loaded and ready');
+      };
+
+      const handleReady = () => {
+        setIsLottieReady(true);
+        console.log('Lottie animation ready');
+      };
+
+      const handlePlay = () => {
+        console.log('Lottie animation started playing');
+      };
+
+      // Listen to events
+      dotLottie.addEventListener('load', handleLoad);
+      dotLottie.addEventListener('ready', handleReady);
+      dotLottie.addEventListener('play', handlePlay);
+
+      // Cleanup
+      return () => {
+        dotLottie.removeEventListener('load', handleLoad);
+        dotLottie.removeEventListener('ready', handleReady);
+        dotLottie.removeEventListener('play', handlePlay);
+      };
+    }
+  }, [dotLottie]);
+
+  // Handle success modal opening - restart animation
+  useEffect(() => {
+    if (success && dotLottie && isLottieReady) {
+      // Small delay to ensure modal is fully rendered
+      setTimeout(() => {
+        dotLottie.stop();
+        dotLottie.play();
+      }, 100);
+    }
+  }, [success, dotLottie, isLottieReady]);
+
+  const dotLottieRefCallback = (dotLottieInstance) => {
+    setDotLottie(dotLottieInstance);
+  };
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -71,7 +132,7 @@ const Contact = () => {
           // Auto-hide success modal after 5 seconds
           setTimeout(() => {
             setSuccess(false);
-          }, 5000);
+          });
         },
         (error) => {
           setError(true);
@@ -79,10 +140,10 @@ const Contact = () => {
           // Auto-hide error modal after 5 seconds
           setTimeout(() => {
             setError(false);
-          }, 5000);
+          });
         }
       );
-  };
+  };    
 
   const closeModal = () => {
     setSuccess(false);
@@ -165,6 +226,16 @@ const Contact = () => {
         </motion.form>
       </div>
 
+      {/* Hidden preloaded Lottie component */}
+      <div style={{ position: 'absolute', left: '-9999px', opacity: 0, pointerEvents: 'none' }}>
+        <DotLottieReact
+          src="/email-success.lottie"
+          autoplay={false}
+          loop={false}
+          dotLottieRefCallback={dotLottieRefCallback}
+        />
+      </div>
+
       {/* Success Modal */}
       {success && (
         <motion.div
@@ -179,11 +250,18 @@ const Contact = () => {
             <button className="close-btn" onClick={closeModal}>×</button>
             <div className="modal-content">
               <div className="lottie-container">
-                <DotLottieReact
-                  src="/email-success.lottie"
-                  loop
-                  autoplay
-                />
+                {isLottieReady ? (
+                  <DotLottieReact
+                    src="/email-success.lottie"
+                    loop
+                    autoplay
+                    speed={1}
+                  />
+                ) : (
+                  <div className="lottie-loading">
+                    <div className="loading-spinner"></div>
+                  </div>
+                )}
               </div>
               <h2>Message Sent Successfully!</h2>
               <p>Thank you for reaching out. I'll get back to you soon.</p>
