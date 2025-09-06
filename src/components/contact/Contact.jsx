@@ -180,7 +180,7 @@ const Contact = () => {
             <div className="modal-content">
               <div className="lottie-container">
                 <DotLottieReact
-                  src="https://lottie.host/e045e4b4-cead-472e-a30d-f947cf2c564d/Bs9nRvQzly.lottie"
+                  src="/email-success.lottie"
                   loop
                   autoplay
                 />
