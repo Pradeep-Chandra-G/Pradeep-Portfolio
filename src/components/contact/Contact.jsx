@@ -244,6 +244,7 @@ const Contact = () => {
             <div className="modal-content">
               {scriptLoaded ? (
                 <dotlottie-wc 
+                  ref={errorAnimationRef}
                   src="https://lottie.host/embed/b8c7e6d3-9f2a-4c5b-8e7d-1a2b3c4d5e6f/9MzKpLxQ8W.json" 
                   speed="1" 
                   style={{
