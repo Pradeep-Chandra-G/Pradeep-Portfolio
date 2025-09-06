@@ -129,18 +129,18 @@ const Contact = () => {
           setSuccess(true);
           setIsSubmitting(false);
           formRef.current.reset();
-          // Auto-hide success modal after 5 seconds
-          setTimeout(() => {
-            setSuccess(false);
-          });
+        //   // Auto-hide success modal after 5 seconds
+        //   setTimeout(() => {
+        //     setSuccess(false);
+        //   });
         },
         (error) => {
           setError(true);
           setIsSubmitting(false);
-          // Auto-hide error modal after 5 seconds
-          setTimeout(() => {
-            setError(false);
-          });
+        //   // Auto-hide error modal after 5 seconds
+        //   setTimeout(() => {
+        //     setError(false);
+        //   });
         }
       );
   };    
