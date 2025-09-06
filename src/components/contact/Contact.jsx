@@ -1,7 +1,8 @@
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState } from "react";
 import "./contact.scss";
 import { motion, useInView } from "framer-motion";
 import emailjs from "@emailjs/browser";
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
 const variants = {
   initial: {
@@ -46,33 +47,8 @@ const Contact = () => {
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [scriptLoaded, setScriptLoaded] = useState(false);
 
   const isInView = useInView(ref, { margin: "-100px" });
-
-  // Load Lottie script dynamically
-  useEffect(() => {
-    const existingScript = document.querySelector('script[src*="dotlottie-wc"]');
-    
-    if (!existingScript) {
-      const script = document.createElement('script');
-      script.src = 'https://unpkg.com/@lottiefiles/dotlottie-wc@0.7.1/dist/dotlottie-wc.js';
-      script.type = 'module';
-      
-      script.onload = () => {
-        console.log('Lottie script loaded successfully');
-        setScriptLoaded(true);
-      };
-      
-      script.onerror = () => {
-        console.error('Failed to load Lottie script');
-      };
-      
-      document.head.appendChild(script);
-    } else {
-      setScriptLoaded(true);
-    }
-  }, []);
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -202,25 +178,13 @@ const Contact = () => {
           <motion.div className="modal success-modal" onClick={(e) => e.stopPropagation()}>
             <button className="close-btn" onClick={closeModal}>×</button>
             <div className="modal-content">
-              {scriptLoaded ? (
-                <dotlottie-wc 
-                  src="https://lottie.host/4b6df59a-e4e2-4e67-b894-3f8e4c9b2d1a/xKpYhUvM8N.json" 
-                  speed="1" 
-                  style={{
-                    width: "300px", 
-                    height: "300px",
-                    maxWidth: "80vw",
-                    maxHeight: "300px"
-                  }}
-                  mode="forward" 
-                  loop 
-                  autoplay>
-                </dotlottie-wc>
-              ) : (
-                <div className="fallback-animation success-fallback">
-                  ✅
-                </div>
-              )}
+              <div className="lottie-container">
+                <DotLottieReact
+                  src="https://lottie.host/e045e4b4-cead-472e-a30d-f947cf2c564d/Bs9nRvQzly.lottie"
+                  loop
+                  autoplay
+                />
+              </div>
               <h2>Message Sent Successfully!</h2>
               <p>Thank you for reaching out. I'll get back to you soon.</p>
               <button className="modal-btn" onClick={closeModal}>Close</button>
@@ -242,26 +206,9 @@ const Contact = () => {
           <motion.div className="modal error-modal" onClick={(e) => e.stopPropagation()}>
             <button className="close-btn" onClick={closeModal}>×</button>
             <div className="modal-content">
-              {scriptLoaded ? (
-                <dotlottie-wc 
-                  ref={errorAnimationRef}
-                  src="https://lottie.host/embed/b8c7e6d3-9f2a-4c5b-8e7d-1a2b3c4d5e6f/9MzKpLxQ8W.json" 
-                  speed="1" 
-                  style={{
-                    width: "250px", 
-                    height: "250px",
-                    maxWidth: "80vw",
-                    maxHeight: "250px"
-                  }}
-                  mode="forward" 
-                  loop 
-                  autoplay>
-                </dotlottie-wc>
-              ) : (
-                <div className="fallback-animation error-fallback">
-                  ❌
-                </div>
-              )}
+              <div className="error-icon">
+                ❌
+              </div>
               <h2>Oops! Something went wrong</h2>
               <p>There was an error sending your message. Please try again.</p>
               <button className="modal-btn" onClick={closeModal}>Try Again</button>

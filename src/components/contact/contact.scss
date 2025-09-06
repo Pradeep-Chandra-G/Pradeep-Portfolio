@@ -182,29 +182,39 @@
         }
 
         // Lottie animation container
-        dotlottie-wc {
-          display: block;
+        .lottie-container {
+          width: 300px;
+          height: 300px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
           margin: 0 auto;
           
           @include tablet {
-            width: 250px !important;
-            height: 250px !important;
+            width: 250px;
+            height: 250px;
           }
 
           @include mobile {
-            width: 200px !important;
-            height: 200px !important;
+            width: 200px;
+            height: 200px;
           }
           
           // For very small screens
           @media (max-width: 400px) {
-            width: 150px !important;
-            height: 150px !important;
+            width: 150px;
+            height: 150px;
+          }
+
+          // Style the DotLottieReact component
+          > div {
+            width: 100% !important;
+            height: 100% !important;
           }
         }
 
-        // Fallback animation styles
-        .fallback-animation {
+        // Error icon styles
+        .error-icon {
           display: flex;
           align-items: center;
           justify-content: center;
@@ -212,6 +222,7 @@
           width: 300px;
           height: 300px;
           animation: bounce 2s infinite;
+          color: #ef4444;
 
           @include tablet {
             width: 250px;
@@ -229,14 +240,6 @@
             width: 150px;
             height: 150px;
             font-size: 50px;
-          }
-
-          &.success-fallback {
-            color: #4ade80;
-          }
-
-          &.error-fallback {
-            color: #ef4444;
           }
         }
 
@@ -330,7 +333,7 @@
   }
 }
 
-// Bounce animation for fallback icons
+// Bounce animation for error icon
 @keyframes bounce {
   0%, 20%, 50%, 80%, 100% {
     transform: translateY(0);
