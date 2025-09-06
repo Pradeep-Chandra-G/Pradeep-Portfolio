@@ -8,6 +8,7 @@
   display: flex;
   align-items: center;
   gap: 50px;
+  position: relative;
 
   @include mobile {
     width: 100%;
@@ -52,7 +53,6 @@
       width: 100%;
     }
 
-
     .phoneSvg {
       stroke: orange;
       position: absolute;
@@ -84,8 +84,282 @@
         background-color: orange;
         cursor: pointer;
         font-weight: 500;
+        transition: all 0.3s ease;
+
         @include mobile {
           padding: 10px;
+        }
+
+        &:disabled {
+          background-color: #ccc;
+          cursor: not-allowed;
+          opacity: 0.6;
+        }
+
+        &:hover:not(:disabled) {
+          background-color: #ff8c00;
+        }
+      }
+    }
+  }
+
+  // Modal Styles
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+
+    .modal {
+      background: linear-gradient(135deg, #111132, #0c0c1d);
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+      position: relative;
+      max-width: 90vw;
+      max-height: 90vh;
+      overflow: hidden;
+
+      @include tablet {
+        max-width: 80vw;
+      }
+
+      @include mobile {
+        max-width: 95vw;
+        margin: 20px;
+      }
+
+      .close-btn {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: rgba(255, 255, 255, 0.1);
+        border: none;
+        color: white;
+        font-size: 24px;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        z-index: 10;
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.2);
+          transform: scale(1.1);
+        }
+
+        @include mobile {
+          top: 15px;
+          right: 15px;
+          width: 35px;
+          height: 35px;
+          font-size: 20px;
+        }
+      }
+
+      .modal-content {
+        padding: 60px 40px 40px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+
+        @include mobile {
+          padding: 50px 20px 30px;
+          gap: 15px;
+        }
+
+        h2 {
+          font-size: 32px;
+          margin: 0;
+          font-weight: 600;
+
+          @include tablet {
+            font-size: 28px;
+          }
+
+          @include mobile {
+            font-size: 24px;
+          }
+        }
+
+        p {
+          font-size: 18px;
+          color: lightgray;
+          margin: 0;
+          line-height: 1.5;
+
+          @include tablet {
+            font-size: 16px;
+          }
+
+          @include mobile {
+            font-size: 14px;
+          }
+        }
+
+        .modal-btn {
+          padding: 15px 30px;
+          border: none;
+          border-radius: 10px;
+          font-size: 16px;
+          font-weight: 500;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          margin-top: 10px;
+
+          @include mobile {
+            padding: 12px 24px;
+            font-size: 14px;
+          }
+
+          &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+          }
+        }
+      }
+
+      // Success Modal Specific Styles
+      &.success-modal {
+        .modal-content {
+          h2 {
+            color: #4ade80;
+          }
+
+          .modal-btn {
+            background-color: #4ade80;
+            color: white;
+
+            &:hover {
+              background-color: #22c55e;
+            }
+          }
+        }
+      }
+
+      // Error Modal Specific Styles
+      &.error-modal {
+        .modal-content {
+          h2 {
+            color: #ef4444;
+          }
+
+          .modal-btn {
+            background-color: #ef4444;
+            color: white;
+
+            &:hover {
+              background-color: #dc2626;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Lottie Animation Styles
+  .lottie-animation {
+    &.success-animation {
+      width: 200px;
+      height: 200px;
+
+      @include tablet {
+        width: 180px;
+        height: 180px;
+      }
+
+      @include mobile {
+        width: 150px;
+        height: 150px;
+      }
+    }
+
+    &.error-animation {
+      width: 180px;
+      height: 180px;
+
+      @include tablet {
+        width: 160px;
+        height: 160px;
+      }
+
+      @include mobile {
+        width: 130px;
+        height: 130px;
+      }
+    }
+  }
+}
+
+// Additional responsive animations
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes overlayFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-overlay {
+  animation: overlayFadeIn 0.3s ease-out;
+  
+  .modal {
+    animation: modalSlideIn 0.3s ease-out;
+  }
+}
+
+// Dark mode enhancement for modals
+@media (prefers-color-scheme: dark) {
+  .modal-overlay .modal {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+}
+
+// Ensure modals work well on very small screens
+@media (max-width: 400px) {
+  .modal-overlay .modal {
+    .modal-content {
+      padding: 40px 15px 25px;
+      
+      h2 {
+        font-size: 20px;
+      }
+      
+      p {
+        font-size: 13px;
+      }
+
+      .lottie-animation {
+        &.success-animation,
+        &.error-animation {
+          width: 120px;
+          height: 120px;
         }
       }
     }
