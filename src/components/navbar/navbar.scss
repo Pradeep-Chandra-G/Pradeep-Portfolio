@@ -10,14 +10,19 @@
 }
 
 .my-tooltip {
-    background: #1e1e2f; // dark background
-    color: #fff; // white text
-    font-size: 0.85rem;
+    background: #fff; // white background
+    color: #000; // black text
+    font-size: 0.9rem;
     font-weight: 500;
-    padding: 8px 12px;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 8px 14px;
+    border-radius: 12px; // more rounded
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+
+    // Fix clipping issue
+    overflow: visible !important;
+    z-index: 9999; // keep above everything
+    white-space: nowrap; // prevent wrapping cutoff
 
     // Smooth fade-in
     opacity: 0;
@@ -32,12 +37,14 @@
         content: "";
         position: absolute;
         border: 6px solid transparent;
-        border-top-color: #1e1e2f; // matches tooltip background
-        bottom: -12px; // adjust position
+        border-top-color: #fff; // matches background
+        bottom: -6px; // closer so it doesn’t push tooltip down
         left: 50%;
         transform: translateX(-50%);
+        box-shadow: -1px -1px 2px rgba(0, 0, 0, 0.1); // subtle arrow shadow
     }
 }
+
 
 
 .navbar {
