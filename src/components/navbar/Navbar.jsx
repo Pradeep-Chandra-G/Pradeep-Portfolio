@@ -29,7 +29,7 @@ const Navbar = () => {
           <a href="/Pradeep's Resume.pdf" target="_blank">
             <img src="/resume.png" alt="Pradeep's Resume" />
           </a>
-          <a href="#" target="_blank">
+          <a href="https://dribbble.com/pradeep-chandra" target="_blank">
             <img src="/dribbble.png" alt="Dribble Link" />
           </a>
         </div>
