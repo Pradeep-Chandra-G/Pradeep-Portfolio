@@ -10,8 +10,8 @@
 }
 
 .my-tooltip {
-    background: #fff; // white background
-    color: #000; // black text
+    background: #fff !important; 
+    color: #000 !important; 
     font-size: 0.9rem;
     font-weight: 500;
     padding: 8px 14px;
@@ -21,7 +21,7 @@
 
     // Fix clipping issue
     overflow: visible !important;
-    z-index: 9999; // keep above everything
+    z-index: 999; // keep above everything
     white-space: nowrap; // prevent wrapping cutoff
 
     // Smooth fade-in
@@ -31,21 +31,7 @@
     &.show {
         opacity: 1;
     }
-
-    // Tooltip arrow
-    &::after {
-        content: "";
-        position: absolute;
-        border: 6px solid transparent;
-        border-top-color: #fff; // matches background
-        bottom: -6px; // closer so it doesn’t push tooltip down
-        left: 50%;
-        transform: translateX(-50%);
-        box-shadow: -1px -1px 2px rgba(0, 0, 0, 0.1); // subtle arrow shadow
-    }
 }
-
-
 
 .navbar {
     height: 100px;

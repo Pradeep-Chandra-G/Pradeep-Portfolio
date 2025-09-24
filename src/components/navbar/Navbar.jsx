@@ -6,7 +6,7 @@ import { Tooltip } from "react-tooltip";
 const Navbar = () => {
   return (
     <div className="navbar">
-      <Tooltip id="my-tooltip" />
+      <Tooltip id="my-tooltip" className="my-tooltip" />
       {/* Sidebar */}
       <Sidebar />
       <div className="wrapper">
@@ -15,7 +15,7 @@ const Navbar = () => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
         >
-          Let&apos;s get out of <span class="hell-text">Development Hell</span>{" "}
+          Let&apos;s get out of <span className="hell-text">Development Hell</span>{" "}
           together!
         </motion.span>
         <div className="social">
